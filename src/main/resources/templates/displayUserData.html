@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>User Data</title>
 </head>
 <body>
+    <p th:text="'Hello ' + ${name} + ' ' + ${surname}">imie i nazwisko</p>
+    <p th:text="'Im guessing Your age is ' + ${age}">wiek</p>
 
 </body>
 </html>

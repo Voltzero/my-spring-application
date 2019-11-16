@@ -22,6 +22,7 @@ public class HelloController {
         return modelAndView;
     }
 
+    @GetMapping("/userData")
     ModelAndView userInfo(ModelAndView modelAndView, @RequestParam(defaultValue = "imie") String name,
                           @RequestParam(defaultValue = "nazwisko") String surname, @RequestParam(defaultValue = "18") int age) {
 
@@ -30,7 +31,7 @@ public class HelloController {
         modelAndView.addObject("name", name);
         modelAndView.addObject("surname", surname);
         modelAndView.addObject("age", age);
-        modelAndView.setViewName("getUserData");
+        modelAndView.setViewName("displayUserData");
         return modelAndView;
     }
 }
