@@ -21,4 +21,16 @@ public class HelloController {
         modelAndView.setViewName("home");
         return modelAndView;
     }
+
+    ModelAndView userInfo(ModelAndView modelAndView, @RequestParam(defaultValue = "imie") String name,
+                          @RequestParam(defaultValue = "nazwisko") String surname, @RequestParam(defaultValue = "18") int age) {
+
+        logger.info("name: {} \nsurname: {} \nage: {}", name, surname, age);
+
+        modelAndView.addObject("name", name);
+        modelAndView.addObject("surname", surname);
+        modelAndView.addObject("age", age);
+        modelAndView.setViewName("getUserData");
+        return modelAndView;
+    }
 }
