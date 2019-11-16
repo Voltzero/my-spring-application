@@ -54,6 +54,7 @@ public class HelloController {
         logger.info("List of users [{}]",users);
 
         modelAndView.addObject("allusers", users);
+        modelAndView.addObject("new-attribue", "empty");
         modelAndView.setViewName("hello/users");
         return modelAndView;
     }
