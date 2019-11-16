@@ -3,7 +3,7 @@ package pl.michal.springdemo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.michal.springdemo.domain.User;
-import pl.michal.springdemo.repository.UserRepository;
+import pl.michal.springdemo.repository.UserAccess;
 
 import java.util.Collections;
 import java.util.List;
@@ -11,14 +11,15 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private UserRepository userRepository;
+    private UserAccess userAccess;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserService(UserAccess userAccess) {
+        this.userAccess = userAccess;
     }
 
-    public List<User> getAllUser(){
+
+    public List<User> getAllUser() {
         return Collections.emptyList();
     }
 }
