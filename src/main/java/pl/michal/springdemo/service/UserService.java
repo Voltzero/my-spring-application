@@ -5,21 +5,19 @@ import org.springframework.stereotype.Service;
 import pl.michal.springdemo.domain.User;
 import pl.michal.springdemo.repository.UserAccess;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service
 public class UserService {
 
-    private UserAccess userAccess;
+    private UserAccess userRepository;
 
     @Autowired
-    public UserService(UserAccess userAccess) {
-        this.userAccess = userAccess;
+    public UserService(UserAccess userRepository) {
+        this.userRepository = userRepository;
     }
 
-
-    public List<User> getAllUser() {
-        return Collections.emptyList();
+    public List<User> getAllUsers() {
+        return userRepository.readAllUsers();
     }
 }

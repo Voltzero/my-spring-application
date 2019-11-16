@@ -7,7 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import pl.michal.springdemo.domain.User;
 import pl.michal.springdemo.service.UserService;
+
+import java.util.List;
 
 @Controller
 public class HelloController {
@@ -43,4 +46,16 @@ public class HelloController {
         modelAndView.setViewName("displayUserData");
         return modelAndView;
     }
+
+    @GetMapping("/users")
+    ModelAndView readAllUsers(ModelAndView modelAndView){
+
+        List<User> users = userService.getAllUsers();
+        logger.info("List of users [{}]",users);
+
+        modelAndView.addObject("allusers", users);
+        modelAndView.setViewName("hello/users");
+        return modelAndView;
+    }
+
 }
